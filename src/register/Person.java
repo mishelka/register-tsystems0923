@@ -61,7 +61,11 @@ public class Person {
      * @param phoneNumber phone number to validate
      * @return <code>true</code> if phone number is valid, <code>false</code> otherwise
      */
-    private boolean isValidPhoneNumber(String phoneNumber) {        
+    private boolean isValidPhoneNumber(String phoneNumber) {
+        //Pattern
+        //Matcher - match(phoneNumber)
+        //ked ok, tak true, ked nie, tak false
+        //pomoct si prikladom z Mines - ConsoleUI
         return false;
     }
     
