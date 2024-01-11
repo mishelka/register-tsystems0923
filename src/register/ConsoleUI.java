@@ -81,9 +81,10 @@ public class ConsoleUI {
     
     //TODO: Implement the method printRegister
     private void printRegister() {
-        //....
-//        0 - register.getCount()
-//        register.getPerson()
+        for (int p = 0; p < register.getCount(); p++) {
+            Person person = register.getPerson(p);
+            System.out.printf("%d%s\t\t%s\n", p+1, person.getName(), person.getPhoneNumber());
+        }
     }
     
     private void addToRegister() {

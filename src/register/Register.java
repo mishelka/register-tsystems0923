@@ -77,10 +77,25 @@ public class Register {
     
     //TODO: Implement the method removePerson
     /**
-     * Removes the specified person from the register.
-     * @param person person to remove
+     * Removes the specified personToDelete from the register.
+     * @param personToDelete personToDelete to remove
      */
-    public void removePerson(Person person) {
-        throw new UnsupportedOperationException("Method removePerson not yet implemented");
+    public void removePerson(Person personToDelete) {
+        for (int i = 0; i < count; i++) {
+            Person p = persons[i];
+
+            if (p.equals(personToDelete)) {
+                persons[i] = null;
+            }
+        }
+
+        for (int i = 0; i < count; i++) {
+            if(persons[i] == null) {
+                persons[i] = persons[i+1];
+                persons[i+1] = null;
+            }
+        }
+
+        count--;
     }
 }
