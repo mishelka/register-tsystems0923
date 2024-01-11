@@ -81,7 +81,9 @@ public class ConsoleUI {
     
     //TODO: Implement the method printRegister
     private void printRegister() {
-        throw new UnsupportedOperationException("Method printRegister not yet implemented");
+        //....
+//        0 - register.getCount()
+//        register.getPerson()
     }
     
     private void addToRegister() {
