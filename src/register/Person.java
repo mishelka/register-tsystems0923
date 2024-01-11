@@ -15,7 +15,7 @@ public class Person {
     private String phoneNumber;
 
     /** Pattern for phone numbers */
-    Pattern PHONE_NUMBER_PATTERN = Pattern.compile("(\\+|00)[0-9]+");
+    private static final Pattern PHONE_NUMBER_PATTERN = Pattern.compile("(\\+|00)[0-9]+");
     
     /**
      * Construct a person.
