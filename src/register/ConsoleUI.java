@@ -83,7 +83,7 @@ public class ConsoleUI {
     private void printRegister() {
         for (int p = 0; p < register.getCount(); p++) {
             Person person = register.getPerson(p);
-            System.out.printf("%d%s\t\t%s\n", p+1, person.getName(), person.getPhoneNumber());
+            System.out.printf("%d.\t%s\n", p+1, person);
         }
     }
     
@@ -98,19 +98,47 @@ public class ConsoleUI {
     
     //TODO: Implement the method updateRegister
     private void updateRegister() {
-        throw new UnsupportedOperationException("Method updateRegister not yet implemented");
+        System.out.println("Enter Name: ");
+        String name = readLine().trim();
+        System.out.println("Enter Phone Number: ");
+        String phoneNumber = readLine().trim();
     }
     
     //TODO: Implement the method findInRegister
     private void findInRegister() {
-        throw new UnsupportedOperationException("Method findInRegister not yet implemented");
+        //full text search - searches for the string inside either name or surname of the person
+        //better full text search could be case insensitife - use toLowerCase on both searched string and 
+        System.out.println("Enter the phone number or a name to search for:");
+        String strToFind = readLine().trim();
+
+        Person[] foundPersons = new Person[register.getCount()];
+        int foundPersonsCount = 0;
+
+        for (int i = 0; i < register.getCount(); i++) {
+            Person p = register.getPerson(i);
+            if(p.getName().contains(strToFind)) {
+                foundPersons[foundPersonsCount] = p;
+                foundPersonsCount++;
+                continue; //aby sme nepridali tu istu osobu dvakrat
+            }
+            if(p.getPhoneNumber().contains(strToFind)) {
+                foundPersons[foundPersonsCount] = p;
+                foundPersonsCount++;
+            }
+        }
+
+        System.out.println(foundPersonsCount == 0 ? "No person found." : "The following persons were found: ");
+        for (Person p: foundPersons) {
+            if(p != null) {
+                System.out.println(p);
+            }
+        }
     }
     
     private void removeFromRegister() {
         System.out.println("Enter index: ");
-        int index = Integer.parseInt(readLine());
+        int index = Integer.parseInt(readLine().trim());
         Person person = register.getPerson(index - 1);
         register.removePerson(person);
     }
-
 }
